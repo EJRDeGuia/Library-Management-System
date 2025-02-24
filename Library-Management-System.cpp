@@ -13,31 +13,33 @@ public:
     // Constructor
     Book(string t, string a, int y) : title(t), author(a), year(y) {}
 
-    // Getter methods
     string getTitle() const { return title; }
     string getAuthor() const { return author; }
     int getYear() const { return year; }
 
-    // Display book details
     void display() const {
         cout << "| " << left << setw(25) << title 
              << "| " << setw(20) << author 
              << "| " << setw(6) << year << " |\n";
     }
+
+    // Destructor
+    ~Book() {
+        
+    }
 };
 
 class Library {
 private:
-    vector<Book> books; // Stores all books
+    vector<Book> books; // Store books
 
 public:
-    // Add a book to the library using emplace_back
     void addBook(const string& title, const string& author, int year) {
-        books.emplace_back(title, author, year); // Construct Book directly in the vector
+        books.emplace_back(title, author, year); 
         cout << "\nBook added successfully!\n";
     }
 
-    // Display all books in the library
+
     void displayBooks() const {
         if (books.empty()) {
             cout << "\nNo books available in the library.\n";
@@ -70,7 +72,7 @@ int main() {
         cout << "=================================\n";
         cout << "Enter your choice: ";
         cin >> choice;
-        cin.ignore(); // Clear input buffer
+        cin.ignore();
 
         switch (choice) {
         case 1: {
